@@ -34,6 +34,9 @@ struct ContentView: View {
                 }
             }
         }
+        .navigationTitle("Recipes")
+        .searchable(text: $viewModel.searchText)
+        .listStyle(.insetGrouped)
     }
 }
 

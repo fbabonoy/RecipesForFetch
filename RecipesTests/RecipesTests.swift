@@ -71,7 +71,7 @@ struct MockRecipeService: RecipeServiceCallProtocol {
             }
             .decode(type: Collection.self, decoder: JSONDecoder())
             .map { response in
-                let nasaPost = response.meals.map { meals -> RecipeData in
+                let recipes = response.meals.map { meals -> RecipeData in
                     let ingredients: [String]
                     let instructions: String?
 
@@ -95,7 +95,7 @@ struct MockRecipeService: RecipeServiceCallProtocol {
                     return RecipeData(title: nil, image: "", mealId: nil, instructions: nil, ingredients: ingredients)
                    }
 
-                return nasaPost
+                return recipes
             }
             .eraseToAnyPublisher()
     }
